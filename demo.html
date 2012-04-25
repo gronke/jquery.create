@@ -1,0 +1,42 @@
+<html>
+	<title>jquery.create Demo</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="jquery.create.js"></script>
+	<style>
+		#target, .target {
+			border: 1px solid #CCC; width: 300px; padding: 10px; margin: 10px;
+		}
+
+		#target {
+			background: #ddd;
+		}
+
+		.one, .two { 
+			position: relative; width: 100px; height: 30px; border: 1px solid #CCC; 
+		}
+
+		.one {
+			background: green;
+		}
+
+		.two {
+			background: blue;
+		}
+	</style>
+</html>
+<body>
+	<h1>jquery.create Demo</h1>
+	<div id="target"></div>
+	<div class="target"></div>
+	<div class="target"></div>
+	<div class="target"></div>
+
+	<h2>Code</h2>
+	<pre>
+jQuery("#target").create("div").addClass("one");
+jQuery(".target").create("div").addClass("two");
+	</pre>
+<script type="text/javascript">
+	eval(jQuery("pre")[0].innerHTML);
+</script>
+</div>
