@@ -6,31 +6,39 @@ if (typeof Object.create !== 'function') {
     };
 }
 (function($) {
-	$.fn.create = function(options) {
+	$.fn.create = function(tag, options) {
 		if(this.length) {
 
 			var ret = [];
 
+			if(tag != undefined) {
+				options = $.extend((options || {}), {
+					tag: tag
+				});
+			}
+
 			this.each(function() {
 
-				if(typeof options == "string") {
-					options = { type: options }
-				}
 				this.options = jQuery.extend({
-					type: 'div',
+					tag: 'div',
+					type: null,
 					id: null,
 					className: null
-				},options);
+				},(options || {}));
 
 				var elem = this,
 					$elem = jQuery(elem);
 
 				var n, $n;
-				if(n = document.createElement(this.options.type)) {
+				if(n = document.createElement(this.options.tag)) {
 					$n = jQuery(n);
 
-					if(this.options.className!=null) {
-						$n.addClass(this.options.className);
+					if(this.options.type!=null) {
+						n.type = this.options.type;
+					}
+
+					if(this.options.class!=null) {
+						$n.addClass(this.options.class);
 					}
 
 					if(this.options.id!=null) {
