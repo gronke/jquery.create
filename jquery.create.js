@@ -22,8 +22,7 @@ if (typeof Object.create !== 'function') {
 				this.options = jQuery.extend({
 					tag: 'div',
 					type: null,
-					id: null,
-					className: null
+					id: null
 				},(options || {}));
 
 				var elem = this,
@@ -35,10 +34,6 @@ if (typeof Object.create !== 'function') {
 
 					if(this.options.type!=null) {
 						n.type = this.options.type;
-					}
-
-					if(this.options.class!=null) {
-						$n.addClass(this.options.class);
 					}
 
 					if(this.options.id!=null) {
