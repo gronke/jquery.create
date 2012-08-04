@@ -22,7 +22,8 @@ if (typeof Object.create !== 'function') {
 				this.options = jQuery.extend({
 					tag: 'div',
 					type: null,
-					id: null
+					id: null,
+					position: null
 				},(options || {}));
 
 				var elem = this,
@@ -40,7 +41,17 @@ if (typeof Object.create !== 'function') {
 						$n.attr("id", this.options.id);
 					}
 
-					$elem.append(n);
+					switch(this.options.position) {
+
+						case "before":
+							$elem.prepend(n);
+							break;
+
+						default:
+							$elem.append(n);
+							break;
+					}
+					
 				}
 
 				ret.push(n);
