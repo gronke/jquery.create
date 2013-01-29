@@ -11,7 +11,7 @@ if (typeof Object.create !== 'function') {
 
 			var ret = [];
 
-			if(tag != undefined) {
+			if(tag !== undefined) {
 				options = $.extend((options || {}), {
 					tag: tag
 				});
@@ -30,14 +30,21 @@ if (typeof Object.create !== 'function') {
 					$elem = jQuery(elem);
 
 				var n, $n;
-				if(n = document.createElement(this.options.tag)) {
+				if(this.options.type!==null) {
+					try {
+						n = document.createElement('<' + this.options.tag + ' type="' + this.options.type + '"></' + this.options.tag + '>');
+					} catch(e) {
+						n = document.createElement(this.options.tag);
+						$(n).attr('type', this.options.tag);
+					}
+				} else {
+					n = document.createElement(this.options.tag);
+				}
+
+				if(n) {
 					$n = jQuery(n);
 
-					if(this.options.type!=null) {
-						n.type = this.options.type;
-					}
-
-					if(this.options.id!=null) {
+					if(this.options.id!==null) {
 						$n.attr("id", this.options.id);
 					}
 
@@ -50,6 +57,7 @@ if (typeof Object.create !== 'function') {
 						default:
 							$elem.append(n);
 							break;
+
 					}
 					
 				}
@@ -60,5 +68,5 @@ if (typeof Object.create !== 'function') {
 
 			return jQuery(ret);
 		}
-	}
+	};
 })(jQuery);
