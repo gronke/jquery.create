@@ -35,7 +35,7 @@ if (typeof Object.create !== 'function') {
 						n = document.createElement('<' + this.options.tag + ' type="' + this.options.type + '"></' + this.options.tag + '>');
 					} catch(e) {
 						n = document.createElement(this.options.tag);
-						$(n).attr('type', this.options.tag);
+						$(n).attr('type', this.options.type);
 					}
 				} else {
 					n = document.createElement(this.options.tag);
