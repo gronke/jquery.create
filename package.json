@@ -1,0 +1,17 @@
+{
+  "name": "jquery.create",
+  "version": "0.1.0",
+  "author": "Stefan Grönke <stefan@gronke.net>",
+  "description": "a simple, chainable document.createElement jQuery plugin",
+  "contributors": [
+    {
+      "nane": "Stefan Grönke",
+      "email": "stefan@gronke.net"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gronke/jquery.create.git"
+  }
+}
